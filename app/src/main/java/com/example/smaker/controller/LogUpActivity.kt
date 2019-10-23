@@ -4,7 +4,9 @@ import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import com.example.smaker.R
+import com.example.smaker.services.AuthService
 import kotlinx.android.synthetic.main.activity_log_up.*
 import java.util.*
 
@@ -50,7 +52,36 @@ class LogUpActivity : AppCompatActivity() {
     }
 
     fun createUserClicked(view:View){
+        val email    = name.text.toString()
+        val password =  password_.text.toString()
+        val username = Email_.text.toString()
+        ChangeAvatarImage_.isEnabled=false
 
+       AuthService.resgisterUser(this,email,password){
+           if(it){
+               Toast.makeText(this,"Register Succesfully",Toast.LENGTH_SHORT).show()
+               //resgisterSucess
+               AuthService.loginUser(this,email,password){
+                   //LoginSucess
+                   if(it){
+                       name.text.clear()
+                       password_.text.clear()
+                       Email_.text.clear()
+                       Toast.makeText(this,"LogIn Succesfully : ${AuthService.user} : ${AuthService.authToken}",Toast.LENGTH_SHORT).show()
+                       AuthService.createUser(this,username,email,userAvatar,avatarColor){
+                           if(it){
+                               ChangeAvatarImage_.isEnabled=true
+                               Toast.makeText(this,"User Add Sucessfully",Toast.LENGTH_SHORT).show()
+
+                           }
+                       }
+
+
+
+                   }
+               }
+           }
+       }
 
     }
 
