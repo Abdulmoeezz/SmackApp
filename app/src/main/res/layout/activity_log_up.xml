@@ -78,4 +78,11 @@
             android:layout_centerHorizontal="true"
             android:onClick="createUserClicked"
             android:layout_below="@id/GenerateBackgroundColor"/>
+
+    <ProgressBar
+            android:id="@+id/Spinner_"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
 </RelativeLayout>

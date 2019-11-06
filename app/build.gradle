@@ -19,6 +19,24 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+
+        applicationVariants.all{
+            variant->
+                variant.outputs.each{
+                    output->
+                        def name="SmackApp${variant.versionName}.${variant.versionCode}.apk"
+                        output.outputFileName=name
+
+                }
+        }
+
+
+
+
+
+
+
+
     }
 }
 
@@ -60,4 +78,12 @@ dependencies {
 dependencies {
     implementation 'androidx.appcompat:appcompat:+'
     implementation 'androidx.constraintlayout:constraintlayout:+'
+}
+
+dependencies{
+
+    compile ('io.socket:socket.io-client:1.0.0') {
+        // excluding org.json which is provided by Android
+        exclude group: 'org.json', module: 'json'
+    }
 }

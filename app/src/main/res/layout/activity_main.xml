@@ -26,9 +26,16 @@
 
             <RelativeLayout
                     android:id="@+id/Layout_ProfileUserInformation"
+                    android:background="@color/colorPrimary"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_100sdp">
 
+                <ImageView
+                        android:id="@+id/ProfileUserImageBackGround"
+                        android:layout_width="@dimen/_40sdp"
+                        android:layout_height="@dimen/_40sdp"
+                        android:layout_margin="@dimen/_10sdp"
+                        />
 
 
                 <ImageView
@@ -36,15 +43,16 @@
                             android:layout_width="@dimen/_40sdp"
                             android:layout_height="@dimen/_40sdp"
                             android:layout_margin="@dimen/_10sdp"
-                            android:background="@mipmap/ic_launcher"
 
-                />
+                            />
+
 
                 <TextView
                         android:id="@+id/ProfileUserName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="AndulMoiz"
+                        android:text="username"
+                        android:textColor="@android:color/white"
                         android:textSize="@dimen/_16sdp"
                         android:layout_marginTop="@dimen/_15sdp"
                         android:layout_toEndOf="@id/ProfileUserImage"
@@ -53,9 +61,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/ProfileUserName"
-                        android:layout_marginLeft="@dimen/_55sdp"
+                        android:layout_marginLeft="@dimen/_60sdp"
                         android:textSize="@dimen/_12sdp"
-                        android:text="@string/nav_header_subtitle"
+                        android:textColor="@android:color/white"
+                        android:text="email id "
                         android:id="@+id/ProfileUserEmail"/>
 
 
@@ -67,18 +76,12 @@
                           android:onClick="LoginNavClicked"
                           android:layout_height="wrap_content"
                           android:textSize="@dimen/_15sdp"
+                        android:textColor="@android:color/white"
                           android:layout_marginLeft="@dimen/_15sdp"
                           android:text="LogIn"/>
 
 
-                <TextView android:layout_width="wrap_content"
-                          android:layout_below="@id/ProfileUserImage"
-                          android:id="@+id/ProfileLogOut_"
-                          android:layout_height="wrap_content"
-                          android:textSize="@dimen/_15sdp"
-                          android:visibility="gone"
-                          android:layout_marginLeft="@dimen/_15sdp"
-                          android:text="LogOut"/>
+
 
 
 <ImageView
@@ -88,7 +91,8 @@
         android:background="@drawable/ic_add_channels_"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_margin="@dimen/_20sdp"/>
+        android:onClick="AddChannelsIntoList"
+        android:layout_margin="@dimen/_10sdp"/>
 
             </RelativeLayout>
 
@@ -96,7 +100,7 @@
 
             <ListView android:layout_width="match_parent"
                       android:layout_marginTop="@dimen/_20sdp"
-                      android:id="@+id/ApplicationChannels"
+                      android:id="@+id/channelslist"
                       android:layout_below="@id/Layout_ProfileUserInformation"
                       android:layout_height="wrap_content"/>
 
