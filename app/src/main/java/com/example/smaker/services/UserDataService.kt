@@ -2,6 +2,7 @@ package com.example.smaker.services
 
 import android.graphics.Color
 import android.util.Log
+import com.example.smaker.controller.App
 import java.util.*
 import kotlin.math.log
 
@@ -20,9 +21,11 @@ object UserDataService {
         avatarName=""
         email=""
         avatarColor=""
-        AuthService.authToken=""
-        AuthService.user=""
-        AuthService.isLoggedIn=false
+        App.sharedPreferences.authtoken=""
+        App.sharedPreferences.useremail=""
+        App.sharedPreferences.isLoggedIn=false
+        MessageService.ClearMessages()
+        MessageService.ClearChannels()
 
 
     }

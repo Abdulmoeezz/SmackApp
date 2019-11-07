@@ -2,6 +2,7 @@ package com.example.smaker.utilities
 
 import android.content.Context
 import android.content.SharedPreferences
+import com.android.volley.toolbox.Volley
 
 class SharedPrefs(context: Context) {
     val PREFS_FILENAME ="prefs"
@@ -23,6 +24,9 @@ class SharedPrefs(context: Context) {
     var useremail:String
         get() = perfs.getString(USER_EMAIL,"").toString()
         set(value) = perfs.edit().putString(USER_EMAIL,value).apply()
+
+
+    val requestQueue = Volley.newRequestQueue(context)
 
 
 
